@@ -16,6 +16,7 @@
 		5FFDF697204F0731001D8E36 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDF696204F0731001D8E36 /* SearchResult.swift */; };
 		5FFDF69B204F0BA7001D8E36 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDF699204F0BA7001D8E36 /* SearchResultCell.swift */; };
 		5FFDF69C204F0BA7001D8E36 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FFDF69A204F0BA7001D8E36 /* SearchResultCell.xib */; };
+		5FFDF69F204F0C3D001D8E36 /* UITableViewCell+ReusableID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDF69E204F0C3D001D8E36 /* UITableViewCell+ReusableID.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		5FFDF696204F0731001D8E36 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		5FFDF699204F0BA7001D8E36 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		5FFDF69A204F0BA7001D8E36 /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
+		5FFDF69E204F0C3D001D8E36 /* UITableViewCell+ReusableID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+ReusableID.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		5FFDF67C204EF960001D8E36 /* StoreSearch */ = {
 			isa = PBXGroup;
 			children = (
+				5FFDF69D204F0C15001D8E36 /* Extensions */,
 				5FFDF698204F0B83001D8E36 /* Views */,
 				5FFDF695204F071E001D8E36 /* Models */,
 				5FFDF692204EFDF3001D8E36 /* Controllers */,
@@ -98,6 +101,14 @@
 				5FFDF69A204F0BA7001D8E36 /* SearchResultCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		5FFDF69D204F0C15001D8E36 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5FFDF69E204F0C3D001D8E36 /* UITableViewCell+ReusableID.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +186,7 @@
 			files = (
 				5FFDF694204EFE0A001D8E36 /* SearchViewController.swift in Sources */,
 				5FFDF67E204EF960001D8E36 /* AppDelegate.swift in Sources */,
+				5FFDF69F204F0C3D001D8E36 /* UITableViewCell+ReusableID.swift in Sources */,
 				5FFDF697204F0731001D8E36 /* SearchResult.swift in Sources */,
 				5FFDF686204EF960001D8E36 /* StoreSearch.xcdatamodeld in Sources */,
 				5FFDF69B204F0BA7001D8E36 /* SearchResultCell.swift in Sources */,

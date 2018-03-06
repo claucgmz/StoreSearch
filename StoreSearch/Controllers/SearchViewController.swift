@@ -16,8 +16,11 @@ class SearchViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    // Do any additional setup after loading the view.
+    registerNibs()
+  }
+  
+  private func registerNibs() {
+    tableView.register(UINib(nibName: SearchResultCell.reusableID, bundle: nil), forCellReuseIdentifier: SearchResultCell.reusableID)
   }
 }
 
@@ -60,19 +63,15 @@ extension SearchViewController: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell")
-    if cell == nil {
-      cell = UITableViewCell(style: .subtitle, reuseIdentifier: "SearchResultCell")
-    }
+    let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultCell.reusableID, for: indexPath) as! SearchResultCell
     
     if searchResults.count == 0 {
-      cell.textLabel?.text = "Nothing found"
-      cell.detailTextLabel?.text = "N-A-D-A"
+//      cell.textLabel?.text = "Nothing found"
+//      cell.detailTextLabel?.text = "N-A-D-A"
     }
     else {
       let result = searchResults[indexPath.row]
-      cell.textLabel?.text = result.name
-      cell.detailTextLabel?.text = result.artistName
+      cell.configure(with: result)
     }
     return cell
   }
