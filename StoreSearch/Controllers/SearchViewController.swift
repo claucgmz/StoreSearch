@@ -17,10 +17,11 @@ class SearchViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    searchBar.becomeFirstResponder()
     registerNibs()
-    //Remove cell separators
     tableView.emptyDataSetDelegate = self
     tableView.emptyDataSetSource = self
+    //Remove cell separators
     tableView.tableFooterView = UIView()
   }
   
@@ -44,7 +45,7 @@ extension SearchViewController: UISearchBarDelegate {
     
     searchResults = []
     
-    if searchText != "justin bieber" {
+    if searchText != "" {
       for i in 0...2 {
         let result = SearchResult()
         result.artistName = searchText
@@ -81,7 +82,10 @@ extension SearchViewController: DZNEmptyDataSetSource {
   }
   
   func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-    return NSAttributedString(string: "No results")
+    if hasSearch == true {
+      return NSAttributedString(string: "No results")
+    }
+    return NSAttributedString(string: "No query search")
   }
 }
 
