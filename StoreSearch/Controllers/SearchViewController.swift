@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
 class SearchViewController: UIViewController {
   @IBOutlet weak var searchBar: UISearchBar!
@@ -17,11 +18,21 @@ class SearchViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     registerNibs()
+    //Remove cell separators
+    tableView.emptyDataSetDelegate = self
+    tableView.emptyDataSetSource = self
+    tableView.tableFooterView = UIView()
+  }
+  
+  deinit {
+    tableView.emptyDataSetSource = nil
+    tableView.emptyDataSetDelegate = nil
   }
   
   private func registerNibs() {
     tableView.register(UINib(nibName: SearchResultCell.reusableID, bundle: nil), forCellReuseIdentifier: SearchResultCell.reusableID)
   }
+  
 }
 
 extension SearchViewController: UISearchBarDelegate {
@@ -53,26 +64,29 @@ extension SearchViewController: UITableViewDelegate {
 
 extension SearchViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if !hasSearch {
-      return 0
-    } else if searchResults.count == 0 {
-      return 1
-    }
-    
     return searchResults.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultCell.reusableID, for: indexPath) as! SearchResultCell
-    
-    if searchResults.count == 0 {
-//      cell.textLabel?.text = "Nothing found"
-//      cell.detailTextLabel?.text = "N-A-D-A"
-    }
-    else {
-      let result = searchResults[indexPath.row]
-      cell.configure(with: result)
-    }
+    let result = searchResults[indexPath.row]
+    cell.configure(with: result)
     return cell
+  }
+}
+
+extension SearchViewController: DZNEmptyDataSetSource {
+  func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+    return UIImage(named: "emptyBox")
+  }
+  
+  func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+    return NSAttributedString(string: "No results")
+  }
+}
+
+extension SearchViewController: DZNEmptyDataSetDelegate {
+  func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
+    return true
   }
 }

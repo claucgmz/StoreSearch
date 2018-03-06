@@ -4,16 +4,15 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search View Controller-->
+        <!--Empty Data Set Delegate-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="StoreSearch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Search" id="BYZ-38-t0r" customClass="SearchViewController" customModule="StoreSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,6 +23,8 @@
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="1mH-GL-9sQ"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="UBF-OA-WfT"/>
+                                    <outlet property="emptyDataSetDelegate" destination="BYZ-38-t0r" id="f5i-cR-mmZ"/>
+                                    <outlet property="emptyDataSetSource" destination="BYZ-38-t0r" id="k1X-19-OPJ"/>
                                 </connections>
                             </tableView>
                             <searchBar contentMode="redraw" placeholder="App name, artist, song, album..." translatesAutoresizingMaskIntoConstraints="NO" id="upW-wG-I8C">
