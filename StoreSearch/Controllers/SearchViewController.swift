@@ -56,7 +56,6 @@ class SearchViewController: UIViewController {
     if !searchText.isEmpty {
       StoreSearchServices().search(for: searchText, kind: kind, onSuccess: { results in
         self.searchResults = results
-        print(results)
         self.tableView.reloadData()
       }, onFailure: { error in })
     }

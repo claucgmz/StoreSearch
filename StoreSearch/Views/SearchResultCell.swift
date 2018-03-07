@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class SearchResultCell: UITableViewCell {
   @IBOutlet private weak var thumbnailView: UIImageView!
@@ -21,5 +22,8 @@ class SearchResultCell: UITableViewCell {
   func configure(with result: SearchResult) {
     nameLabel.text = result.name
     detailLabel.text = result.name
+    if let url = result.thumbnailURL {
+      thumbnailView.af_setImage(withURL: url)
+    }
   }
 }
