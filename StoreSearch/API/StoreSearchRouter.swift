@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 enum StoreSearchRouter: URLRequestConvertible {
-  case search(term: String)
+  case search(term: String, kind: String)
   static var basicURL = "https://itunes.apple.com/"
   var path: String {
     switch self {
@@ -20,8 +20,8 @@ enum StoreSearchRouter: URLRequestConvertible {
   }
   var parameters: [String: Any] {
     switch self {
-    case .search(let term):
-      return ["term": term]
+    case .search(let term, let kind):
+      return ["term": term, "entity": kind]
     }
   }
   var method: HTTPMethod {

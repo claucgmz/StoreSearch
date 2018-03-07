@@ -11,8 +11,8 @@ import Alamofire
 import AlamofireObjectMapper
 
 class StoreSearchServices {
-  func search(for term: String, onSuccess: @escaping ([SearchResult])  -> Void, onFailure: @escaping (Error) -> Void) {
-    Alamofire.request(StoreSearchRouter.search(term: "metallica")).validate()
+  func search(for term: String, kind: String, onSuccess: @escaping ([SearchResult]) -> Void, onFailure: @escaping (Error) -> Void) {
+    Alamofire.request(StoreSearchRouter.search(term: term, kind: kind)).validate()
       .responseObject(completionHandler: { (response: DataResponse<SearchResultResponse>) in
         switch response.result {
         case .success:

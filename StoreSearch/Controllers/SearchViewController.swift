@@ -34,7 +34,7 @@ class SearchViewController: UIViewController {
   }
   // MARK: action methods
   @IBAction private func segmentChanged(_ sender: UISegmentedControl) {
-    print("Segment changed: \(sender.selectedSegmentIndex)")
+    performSearch()
   }
   
   // MARK: private methods
@@ -42,11 +42,21 @@ class SearchViewController: UIViewController {
     guard let searchText = searchBar.text else {
       return
     }
+    
+    let kind: String
+    switch segmentedControl.selectedSegmentIndex {
+    case 1: kind = "musicTrack"
+    case 2: kind = "software"
+    case 3: kind = "ebook"
+    default: kind = ""
+    }
+    
     searchResults = []
     hasSearch = true
     if !searchText.isEmpty {
-      StoreSearchServices().search(for: searchText, onSuccess: { results in
+      StoreSearchServices().search(for: searchText, kind: kind, onSuccess: { results in
         self.searchResults = results
+        print(results)
         self.tableView.reloadData()
       }, onFailure: { error in })
     }
