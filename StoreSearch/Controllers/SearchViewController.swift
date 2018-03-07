@@ -10,10 +10,11 @@ import UIKit
 import DZNEmptyDataSet
 
 class SearchViewController: UIViewController {
-  @IBOutlet weak var searchBar: UISearchBar!
-  @IBOutlet weak var tableView: UITableView!
-  var searchResults = [SearchResult]()
-  var hasSearch = false
+  @IBOutlet weak private var searchBar: UISearchBar!
+  @IBOutlet weak private var segmentedControl: UISegmentedControl!
+  @IBOutlet weak private var tableView: UITableView!
+  private var searchResults = [SearchResult]()
+  private var hasSearch = false
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -34,6 +35,12 @@ class SearchViewController: UIViewController {
     tableView.register(UINib(nibName: SearchResultCell.reusableID, bundle: nil), forCellReuseIdentifier: SearchResultCell.reusableID)
   }
   
+  // MARK - Action methods
+  
+  @IBAction func segmentChanged(_ sender: UISegmentedControl) {
+    print("Segment changed: \(sender.selectedSegmentIndex)")
+  }
+  
 }
 
 extension SearchViewController: UISearchBarDelegate {
@@ -45,7 +52,7 @@ extension SearchViewController: UISearchBarDelegate {
     
     searchResults = []
     
-    if searchText != "" {
+    if !searchText.isEmpty {
       for i in 0...2 {
         let result = SearchResult()
         result.artistName = searchText
