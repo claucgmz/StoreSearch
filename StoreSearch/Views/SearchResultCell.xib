@@ -58,8 +58,10 @@
                     </stackView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="D87-df-crb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Dd9-kE-eGh"/>
                     <constraint firstItem="D87-df-crb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="HIJ-L6-TnZ"/>
                     <constraint firstItem="7us-8e-xIS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IYT-nM-JIv"/>
+                    <constraint firstAttribute="bottom" secondItem="D87-df-crb" secondAttribute="bottom" constant="10" id="drx-am-dlC"/>
                     <constraint firstAttribute="trailing" secondItem="D87-df-crb" secondAttribute="trailing" id="paL-Ox-H1g"/>
                 </constraints>
             </tableViewCellContentView>
