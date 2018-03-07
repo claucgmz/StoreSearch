@@ -24,6 +24,8 @@ class SearchViewController: UIViewController {
     tableView.emptyDataSetSource = self
     //Remove cell separators
     tableView.tableFooterView = UIView()
+    
+    StoreSearchServices().getSearch()
   }
   
   deinit {
