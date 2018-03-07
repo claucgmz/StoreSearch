@@ -8,19 +8,21 @@
 
 import Foundation
 import Alamofire
+import AlamofireObjectMapper
 
 class StoreSearchServices {
-  func getSearch() {
-    Alamofire.request(StoreSearchRouter.search(term: "metallica"))
-      .validate()
-      .responseJSON(completionHandler: {
-      response in
+  func search(for term: String, onSuccess: @escaping ([SearchResult])  -> Void, onFailure: @escaping (Error) -> Void) {
+    Alamofire.request(StoreSearchRouter.search(term: "metallica")).validate()
+      .responseObject(completionHandler: { (response: DataResponse<SearchResultResponse>) in
         switch response.result {
         case .success:
-          print("validate!!")
+          let results = response.result.value
+          if let items = results?.results {
+            onSuccess(items)
+          }
         case .failure(let error):
-          print(error)
+          onFailure(error)
         }
-    })
+      })
   }
 }

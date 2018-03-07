@@ -13,9 +13,8 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
-
-
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions
+    launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     customizeAppearance()
     return true
   }
@@ -26,4 +25,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window?.tintColor = UIColor(red: 10/255, green: 80/255, blue: 80/255, alpha: 1)
   }
 }
-

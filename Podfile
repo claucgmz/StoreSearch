@@ -10,5 +10,8 @@ target 'StoreSearch' do
   
   #Elegant HTTP Networking in Swift
   pod 'Alamofire'
+  
+  #An Alamofire extension which converts JSON response data into swift objects using ObjectMapper
+  pod 'AlamofireObjectMapper', '~> 5.0'
 
 end

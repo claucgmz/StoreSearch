@@ -1,15 +1,22 @@
 PODS:
   - Alamofire (4.6.0)
+  - AlamofireObjectMapper (5.0.0):
+    - Alamofire (~> 4.1)
+    - ObjectMapper (~> 3.0)
   - DZNEmptyDataSet (1.8.1)
+  - ObjectMapper (3.1.0)
 
 DEPENDENCIES:
   - Alamofire
+  - AlamofireObjectMapper (~> 5.0)
   - DZNEmptyDataSet
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
 
-PODFILE CHECKSUM: dc9760d0007b224ce8ba2d21215a83166bf01c64
+PODFILE CHECKSUM: 810d630c7775ff7ddd72d6c1ac942b73d576806c
 
 COCOAPODS: 1.3.1

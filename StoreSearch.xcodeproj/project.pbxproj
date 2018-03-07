@@ -10,6 +10,7 @@
 		067F9051B8804039948BCC50 /* Pods_StoreSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B628739353DFAFB192C7079E /* Pods_StoreSearch.framework */; };
 		5F855427205059F300BAC2D3 /* StoreSearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F855426205059F300BAC2D3 /* StoreSearchRouter.swift */; };
 		5F85542A20506DA500BAC2D3 /* StoreSearchServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F85542920506DA500BAC2D3 /* StoreSearchServices.swift */; };
+		5F85542C2050776800BAC2D3 /* SearchResultResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F85542B2050776800BAC2D3 /* SearchResultResponse.swift */; };
 		5FFDF67E204EF960001D8E36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDF67D204EF960001D8E36 /* AppDelegate.swift */; };
 		5FFDF683204EF960001D8E36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FFDF681204EF960001D8E36 /* Main.storyboard */; };
 		5FFDF686204EF960001D8E36 /* StoreSearch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDF684204EF960001D8E36 /* StoreSearch.xcdatamodeld */; };
@@ -26,6 +27,7 @@
 		5CDFC1B088915C4517EE17DA /* Pods-StoreSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreSearch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StoreSearch/Pods-StoreSearch.debug.xcconfig"; sourceTree = "<group>"; };
 		5F855426205059F300BAC2D3 /* StoreSearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSearchRouter.swift; sourceTree = "<group>"; };
 		5F85542920506DA500BAC2D3 /* StoreSearchServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSearchServices.swift; sourceTree = "<group>"; };
+		5F85542B2050776800BAC2D3 /* SearchResultResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultResponse.swift; sourceTree = "<group>"; };
 		5FFDF67A204EF960001D8E36 /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FFDF67D204EF960001D8E36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FFDF682204EF960001D8E36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				5FFDF696204F0731001D8E36 /* SearchResult.swift */,
+				5F85542B2050776800BAC2D3 /* SearchResultResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				5FFDF678204EF960001D8E36 /* Resources */,
 				3C012EC11B03715214B22FC8 /* [CP] Embed Pods Frameworks */,
 				5DD752C1B48491005F85E432 /* [CP] Copy Pods Resources */,
+				5F85542D20508F7E00BAC2D3 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -237,12 +241,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-StoreSearch/Pods-StoreSearch-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -282,6 +290,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StoreSearch/Pods-StoreSearch-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5F85542D20508F7E00BAC2D3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -291,6 +312,7 @@
 			files = (
 				5FFDF694204EFE0A001D8E36 /* SearchViewController.swift in Sources */,
 				5FFDF67E204EF960001D8E36 /* AppDelegate.swift in Sources */,
+				5F85542C2050776800BAC2D3 /* SearchResultResponse.swift in Sources */,
 				5FFDF69F204F0C3D001D8E36 /* UITableViewCell+ReusableID.swift in Sources */,
 				5F85542A20506DA500BAC2D3 /* StoreSearchServices.swift in Sources */,
 				5FFDF697204F0731001D8E36 /* SearchResult.swift in Sources */,

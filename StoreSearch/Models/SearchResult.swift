@@ -7,8 +7,23 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class SearchResult {
+struct SearchResult: Mappable {
   var name = ""
   var artistName = ""
+  var kind = ""
+  var genre = ""
+  var thumbnailURL = ""
+  
+  init?(map: Map) {
+  }
+  
+  mutating func mapping(map: Map) {
+    name <- map["trackName"]
+    artistName <- map["artistName"]
+    kind <- map["kind"]
+    genre <- map["primaryGenreName"]
+    thumbnailURL <- map["artworkUrl60"]
+  }
 }
